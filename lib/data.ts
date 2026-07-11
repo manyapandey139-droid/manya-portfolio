@@ -2,155 +2,280 @@ export const profile = {
   name: "Manya Pandey",
   firstName: "Manya",
   lastName: "Pandey",
-  roles: [
+ roles: [
     "Software Developer",
+    "Aspiring Cybersecurity Professional",
     "AI Builder",
-    "Cybersecurity Learner",
-    "Technical Writer",
-    "Builder",
+    "LinkedIn Ghostwriter",
+    "BCA Student",
+    "Open Source Learner",
   ],
-  tagline: "Building technology. Exploring cybersecurity. Sharing the journey.",
-  heroSub: "Building technology while documenting my cybersecurity journey.",
-  email: "manya.pandey.dev@gmail.com",
-  github: "https://github.com/manyapandey",
-  linkedin: "https://linkedin.com/in/manyapandey",
+
+  tagline:
+    "Building software today. Learning cybersecurity for tomorrow.",
+
+  heroSub:
+    "I'm a BCA student passionate about building real-world software, exploring AI, and documenting my journey into cybersecurity one project at a time.",
+
+  email: "manya13pandey@gmail.com",
+  github: "https://github.com/manyapandey139-droid",
+  linkedin: "https://www.linkedin.com/in/manya-pandey139",
   resumeUrl: "/resume.pdf",
 };
 
 export const about = {
-  eyebrow: "About",
-  heading: "Curiosity is the starting commit.",
+  eyebrow: "About Me",
+
+  heading: "Learning by Building. Growing by Solving.",
+
   paragraphs: [
-    "I didn't start out planning to write code for a living — I started by taking things apart. A settings menu, a broken script, a login page that behaved strangely. Somewhere between fixing what was broken and building what didn't exist yet, I found the thing I wanted to keep doing.",
-    "Right now that means three things running in parallel: building real software, learning how systems fail and how to defend them, and writing down what I learn so the next person climbing the same hill has a shorter path.",
-    "I'm early in this journey, and I like it that way. Every project teaches me something my last one didn't. Every vulnerability I study rewires how I think about the code I ship. I'm not trying to look finished — I'm trying to keep getting better in public.",
+
+    "I started my technology journey in 2025 with one simple belief — the best way to learn is by building real projects. Instead of collecting tutorials, I enjoy turning ideas into working applications that solve practical problems.",
+
+    "Currently, I'm pursuing my Bachelor of Computer Applications while continuously improving my skills in software development, AI, networking, Linux, and cybersecurity. Every project I build teaches me something new, and every challenge pushes me to become a better engineer.",
+
+    "Beyond development, I'm also passionate about LinkedIn ghostwriting, personal branding, and helping professionals build a stronger online presence. My long-term goal is to become a cybersecurity professional who not only understands how systems work but also how to secure them."
   ],
+
   pillars: [
+
     {
-      label: "Curiosity",
-      detail: "Ask why it works before asking how to use it.",
+      label: "Build",
+      detail: "Create real projects that solve real problems."
     },
+
     {
-      label: "Projects",
-      detail: "Ship real things, not tutorials left half-finished.",
+      label: "Learn",
+      detail: "Continuously improve through hands-on experience."
     },
+
     {
-      label: "Cybersecurity",
-      detail: "Learn how systems break to build ones that don't.",
+      label: "Secure",
+      detail: "Understand systems before learning how to defend them."
     },
+
     {
-      label: "Growth",
-      detail: "Document the process — the wins and the dead ends.",
-    },
-  ],
+      label: "Share",
+      detail: "Document the journey and help others learn along the way."
+    }
+
+  ]
 };
 
 export const timeline = [
+
   {
     year: "2023",
-    title: "Started learning technology",
-    detail: "Picked up my first lines of code and never really put them down.",
+    title: "Completed Class X (ICSE)",
+    detail:
+      "Built a strong academic foundation while developing curiosity for technology and computers.",
   },
-  {
-    year: "2023",
-    title: "Started BCA",
-    detail: "Began a Bachelor's in Computer Applications to formalize the fundamentals.",
-  },
-  {
-    year: "2024",
-    title: "Built AirCanvas",
-    detail: "Shipped a computer-vision project that turns hand gestures into brush strokes.",
-  },
-  {
-    year: "2024",
-    title: "Learning Cybersecurity",
-    detail: "Started studying networks, threats, and defense from first principles.",
-  },
+
   {
     year: "2025",
-    title: "Building in Public",
-    detail: "Started sharing projects, write-ups, and progress as I go, not just the finished product.",
+    title: "Completed Class XII (PCM)",
+    detail:
+      "Finished higher secondary education and decided to pursue a career in technology.",
   },
+
   {
-    year: "Next",
-    title: "Future...",
-    detail: "Deeper into security, deeper into AI, and more things shipped in the open.",
+    year: "2025",
+    title: "Started BCA",
+    detail:
+      "Began Bachelor of Computer Applications while focusing on practical learning alongside academics.",
   },
+
+  {
+    year: "2025",
+    title: "Started Software Development",
+    detail:
+      "Learned programming by building projects instead of only following tutorials.",
+  },
+
+  {
+    year: "2026",
+    title: "Built AirCanvas",
+    detail:
+      "Developed a gesture-controlled drawing application using Computer Vision, OpenCV and MediaPipe.",
+  },
+
+  {
+    year: "2026",
+    title: "Building AirOS",
+    detail:
+      "Currently building an AI-powered desktop assistant combining voice control, computer vision and automation.",
+  },
+
+  {
+    year: "Present",
+    title: "Learning Cybersecurity",
+    detail:
+      "Actively studying Linux, Networking, Ethical Hacking and Security Fundamentals while building practical skills.",
+  },
+
+  {
+    year: "Future",
+    title: "Open Source • Research • Cybersecurity",
+    detail:
+      "Contributing to open source, building impactful software and growing into a cybersecurity professional.",
+  }
+
 ];
 
 export const projects = [
   {
-    title: "AirCanvas",
+    title: "AirOS",
+    status: "In Progress",
     description:
-      "A gesture-controlled digital canvas that turns hand movement into brush strokes using real-time computer vision — no mouse, no stylus, just motion.",
+      "An AI-powered desktop assistant with voice control, gesture recognition, automation, and productivity features.",
+    stack: ["Python", "OpenCV", "SpeechRecognition", "Automation"],
+    challenges:
+      "Building a modular AI assistant that combines voice, gesture and automation into one system.",
+    learnings:
+      "System architecture, modular development and AI integration.",
+    github: "https://github.com/manyapandey139-droid/airos",
+    caseStudy: "#",
+  },
+
+  {
+    title: "AirCanvas",
+    status: "Completed",
+    description:
+      "A gesture-controlled digital canvas using computer vision and MediaPipe.",
     stack: ["Python", "OpenCV", "MediaPipe", "NumPy"],
     challenges:
-      "Getting stable, low-latency hand tracking that didn't jitter across different lighting and camera qualities.",
+      "Stable hand tracking across different lighting conditions.",
     learnings:
-      "How much of computer vision is really about filtering noisy data, not just detecting it.",
-    github: "https://github.com/manyapandey/aircanvas",
+      "Real-time computer vision and gesture recognition.",
+    github: "https://github.com/manyapandey139-droid/aircanvas",
     caseStudy: "#",
   },
+
   {
     title: "Portfolio",
+    status: "Completed",
     description:
-      "This site — a from-scratch personal brand built with Next.js and Framer Motion, designed to feel handcrafted rather than templated.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      "My personal portfolio built using Next.js, TypeScript and Framer Motion.",
+    stack: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
     challenges:
-      "Balancing motion and restraint — building something that feels premium without feeling over-animated.",
+      "Creating a premium UI with smooth animations.",
     learnings:
-      "How much discipline good design actually requires — most of the work is deciding what to leave out.",
-    github: "https://github.com/manyapandey/portfolio",
-    caseStudy: "#",
-  },
-  {
-    title: "Cybersecurity Lab",
-    description:
-      "A personal home lab for practicing network defense, vulnerability analysis, and safe exploitation of intentionally vulnerable machines.",
-    stack: ["Linux", "Kali", "Wireshark", "Nmap", "VirtualBox"],
-    challenges:
-      "Building a network topology that's isolated and safe while still realistic enough to learn from.",
-    learnings:
-      "That most real-world breaches come from small misconfigurations, not exotic zero-days.",
-    github: "https://github.com/manyapandey/cybersecurity-lab",
+      "Modern frontend architecture and motion design.",
+    github: "https://github.com/manyapandey139-droid/manya-portfolio",
     caseStudy: "#",
   },
 ];
 
 export const skills = {
-  Programming: ["Python", "JavaScript", "TypeScript", "C++", "SQL"],
-  Frontend: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
-  Backend: ["Node.js", "Express", "REST APIs", "MongoDB"],
-  AI: ["OpenCV", "MediaPipe", "Prompt Engineering", "LLM Integrations"],
-  Cybersecurity: ["Network Security", "Nmap", "Wireshark", "Linux Hardening"],
-  Tools: ["Git", "Docker", "VS Code", "Figma", "Kali Linux"],
+  Programming: [
+    "Python",
+    "Java",
+    "C",
+    "JavaScript",
+  ],
+
+  Frontend: [
+    "HTML",
+    "CSS",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+  ],
+
+  AI: [
+    "OpenCV",
+    "MediaPipe",
+    "Prompt Engineering",
+    "ChatGPT",
+    "Claude AI",
+  ],
+
+  Cybersecurity: [
+    "Linux",
+    "Networking",
+    "Wireshark",
+    "Nmap",
+    "Cybersecurity Fundamentals",
+  ],
+
+  Tools: [
+    "Git",
+    "GitHub",
+    "VS Code",
+    "VirtualBox",
+    "Canva",
+    "Figma",
+  ],
 };
 
 export const certifications = [
+
   {
-    title: "Introduction to Cybersecurity",
-    issuer: "Cisco Networking Academy",
-    year: "2024",
-    credentialUrl: "#",
+    title: "Foundations: Data, Data, Everywhere",
+    issuer: "Google",
+    year: "2025",
+    credentialUrl: "https://coursera.org/share/8cb3224870525ad75ecc58d5f82cbc4e",
   },
+
   {
-    title: "Python for Everybody",
-    issuer: "University of Michigan (Coursera)",
-    year: "2023",
-    credentialUrl: "#",
+    title: "AI for Brainstorming and Planning",
+    issuer: "Google",
+    year: "2025",
+    credentialUrl: "https://coursera.org/share/bcc2ee11d7ddfdd4b6f6bf4f8e000e83",
   },
+
   {
-    title: "Foundations of Networking",
-    issuer: "Cisco Networking Academy",
-    year: "2024",
-    credentialUrl: "#",
+    title: "AI Fundamentals",
+    issuer: "Google",
+    year: "2025",
+    credentialUrl: "https://coursera.org/share/b9ab7ab25f4a89d6eed01e01a6017ff8",
   },
+
+  {
+    title: "Foundations of Cybersecurity",
+    issuer: "Google",
+    year: "2025",
+    credentialUrl: "https://coursera.org/share/9b709db7b4a96762adf6f9d324c4ae7b",
+  }
+
 ];
 
 export const currentMission = [
-  { label: "Portfolio", detail: "Refining this site into a living case study." },
-  { label: "Networking", detail: "Deepening how routing, protocols, and firewalls actually work." },
-  { label: "Linux", detail: "Getting fluent in the shell and system administration." },
-  { label: "Cybersecurity", detail: "Working through vulnerable machines and CTF challenges." },
-  { label: "Open Source", detail: "Looking for my first real contribution to give back." },
+
+  {
+    label: "Building AirOS",
+    detail:
+      "Creating an AI-powered desktop assistant with voice control, gesture recognition and smart automation.",
+  },
+
+  {
+    label: "Networking",
+    detail:
+      "Learning networking fundamentals, protocols and real-world communication between systems.",
+  },
+
+  {
+    label: "Linux",
+    detail:
+      "Becoming comfortable with Linux administration, terminal workflows and system management.",
+  },
+
+  {
+    label: "Cybersecurity",
+    detail:
+      "Building a strong foundation in ethical hacking, system security and defensive techniques.",
+  },
+
+  {
+    label: "LinkedIn Ghostwriting",
+    detail:
+      "Learning personal branding and writing content that helps professionals grow on LinkedIn.",
+  },
+
+  {
+    label: "Open Source",
+    detail:
+      "Preparing to contribute to meaningful open-source projects while continuously improving my development skills.",
+  }
+
 ];

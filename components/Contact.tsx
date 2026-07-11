@@ -7,7 +7,7 @@ import { profile } from "@/lib/data";
 const links = [
   {
     label: "Email",
-    href: `mailto:${profile.email}`,
+    href: `https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`,
     icon: Mail,
   },
   {

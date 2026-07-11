@@ -37,6 +37,15 @@ export default function Projects() {
             >
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-display text-2xl">{project.title}</h3>
+                <span
+  className={`text-xs px-3 py-1 rounded-full font-medium ${
+    project.status === "Completed"
+      ? "bg-green-500/10 text-green-400 border border-green-500/20"
+      : "bg-yellow-500/10 text-yellow-400 border border-yellow-500/20"
+  }`}
+>
+  {project.status}
+</span>
                 <ArrowUpRight
                   className="text-secondary group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
                   size={22}
