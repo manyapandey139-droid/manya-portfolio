@@ -103,7 +103,7 @@ export const timeline = [
     year: "2026",
     title: "Building AirOS",
     detail:
-      "Currently building an AI-powered desktop assistant combining voice control, computer vision and automation.",
+      "Developed a gesture-controlled laptop application using Computer Vision, OpenCV and MediaPipe.",
   },
 
   {
@@ -125,7 +125,7 @@ export const timeline = [
 export const projects = [
   {
     title: "AirOS",
-    status: "In Progress",
+    status: "Completed",
     description:
       "An AI-powered desktop assistant with voice control, gesture recognition, automation, and productivity features.",
     stack: ["Python", "OpenCV", "SpeechRecognition", "Automation"],
