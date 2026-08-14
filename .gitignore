@@ -1,5 +1,10 @@
 node_modules
 .next
+*.tsbuildinfo
+
+# Old duplicate copy of this project — not part of the build
+/portfolio
+package-lock-local.json
 out
 .env*.local
 .DS_Store

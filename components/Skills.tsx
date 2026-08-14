@@ -1,53 +1,39 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { skills } from "@/lib/data";
+import SectionHeading from "./ui/SectionHeading";
+import Reveal from "./ui/Reveal";
+import Tag from "./ui/Tag";
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative px-6 md:px-10 py-28 md:py-36">
-      <div className="max-w-content mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <p className="section-eyebrow mb-4">Skills</p>
-          <h2 className="font-display font-semibold text-[clamp(1.8rem,4vw,2.8rem)]">
-            What I work with.
-          </h2>
-        </motion.div>
+    <section
+      id="skills"
+      className="relative overflow-hidden px-6 py-24 md:px-10 md:py-32"
+    >
+      <div className="mx-auto max-w-content">
+        <SectionHeading
+          eyebrow="Skills"
+          title="What I work with."
+          description="The tools and skills I actually use day to day — across development, content and design."
+        />
 
-        <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
-          {Object.entries(skills).map(([category, items], catIndex) => (
-            <motion.div
+        <div className="grid gap-6 sm:grid-cols-2">
+          {Object.entries(skills).map(([category, items], i) => (
+            <Reveal
               key={category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: catIndex * 0.06 }}
+              delay={i * 0.07}
+              className="h-full rounded-3xl border border-border bg-surface p-7 shadow-soft transition-colors duration-300 hover:border-border-strong md:p-8"
             >
-              <h3 className="font-mono text-xs uppercase tracking-widest text-accent mb-4">
+              <h3 className="font-display text-lg font-semibold text-ink">
                 {category}
               </h3>
-              <div className="flex flex-wrap gap-3">
-                {items.map((skill, i) => (
-                  <motion.span
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.35, delay: i * 0.04 }}
-                    whileHover={{ y: -3, borderColor: "#8B5CF6", color: "#8B5CF6" }}
-                    className="px-4 py-2 rounded-full border border-border text-sm text-secondary cursor-default"
-                  >
+              <div className="mt-5 flex flex-wrap gap-2.5">
+                {items.map((skill) => (
+                  <Tag key={skill} className="px-3.5 py-1.5 text-[13px]">
                     {skill}
-                  </motion.span>
+                  </Tag>
                 ))}
               </div>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>

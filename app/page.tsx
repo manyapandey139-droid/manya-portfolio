@@ -1,12 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Timeline from "@/components/Timeline";
-import Projects from "@/components/Projects";
+import Services from "@/components/Services";
+import FeaturedWork from "@/components/FeaturedWork";
+import GitHubProjects from "@/components/GitHubProjects";
 import Skills from "@/components/Skills";
 import Certifications from "@/components/Certifications";
-import GitHubSection from "@/components/GitHubSection";
-import CurrentMission from "@/components/CurrentMission";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -16,12 +15,11 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
-      <Timeline />
-      <Projects />
+      <Services />
+      <FeaturedWork />
+      <GitHubProjects />
       <Skills />
       <Certifications />
-      <GitHubSection />
-      <CurrentMission />
       <Contact />
       <Footer />
     </>

@@ -4,6 +4,12 @@
 
 :root {
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --c-bg: #fbf8fb;
+  --c-ink: #2b2135;
+  --c-muted: #6e6379;
+  --c-accent: #7c5ac2;
+  --c-border: #eae2f2;
 }
 
 * {
@@ -11,35 +17,38 @@
 }
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
+  /* Offset anchor targets so the fixed navbar never covers a heading */
+  scroll-padding-top: 6rem;
 }
 
 body {
-  background-color: #050505;
-  color: #ffffff;
-  font-family: var(--font-inter), sans-serif;
+  background-color: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
   overflow-x: hidden;
-  cursor: default;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background-color: #8b5cf6;
-  color: #ffffff;
+  background-color: #e3d6f7;
+  color: var(--c-ink);
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #f4eefa;
 }
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: #d6c7ea;
   border-radius: 999px;
+  border: 2px solid #f4eefa;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8b5cf6;
+  background: var(--c-accent);
 }
 
 /* Visible keyboard focus states everywhere */
@@ -48,9 +57,9 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid #8b5cf6;
-  outline-offset: 4px;
-  border-radius: 4px;
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
 /* Skip link for screen reader / keyboard users */
@@ -59,10 +68,10 @@ textarea:focus-visible,
   left: -9999px;
   top: 0;
   z-index: 100;
-  background: #8b5cf6;
-  color: #050505;
+  background: var(--c-accent);
+  color: #ffffff;
   padding: 12px 20px;
-  border-radius: 0 0 8px 0;
+  border-radius: 0 0 10px 0;
   font-weight: 600;
 }
 .skip-link:focus {
@@ -73,44 +82,92 @@ textarea:focus-visible,
   text-wrap: balance;
 }
 
+/* ---------- Brand utilities ---------- */
+
 .gradient-text {
-  background: linear-gradient(120deg, #ffffff 0%, #a1a1aa 60%, #8b5cf6 100%);
+  background: linear-gradient(100deg, #7c5ac2 0%, #a98ad8 45%, #d99ab9 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.noise-overlay {
+/* Frosted card used for elevated panels */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(234, 226, 242, 0.9);
+}
+
+/* Soft ambient wash placed behind sections */
+.aura {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(72px);
   pointer-events: none;
-  position: fixed;
+  z-index: -1;
+}
+
+/* Hairline gradient rule used between sections */
+.rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #e3d6f7 20%,
+    #f0d9e4 50%,
+    #e3d6f7 80%,
+    transparent
+  );
+  border: 0;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #7c5ac2;
+}
+
+.section-eyebrow::before {
+  content: "";
+  width: 1.6rem;
+  height: 1px;
+  background: linear-gradient(90deg, #c4b0e4, #f3c9da);
+}
+
+/* Loading shimmer for skeleton cards */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
   inset: 0;
-  z-index: 40;
-  opacity: 0.035;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.75),
+    transparent
+  );
+  animation: shimmer 1.6s infinite;
 }
-
-/* Custom cursor - hidden on touch devices */
-.cursor-dot,
-.cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 100;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  will-change: transform;
-}
-
-@media (hover: none), (pointer: coarse) {
-  .cursor-dot,
-  .cursor-ring {
-    display: none;
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {
@@ -119,12 +176,4 @@ textarea:focus-visible,
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-.section-eyebrow {
-  font-family: var(--font-jetbrains-mono), monospace;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  color: #8b5cf6;
 }

@@ -1,55 +1,48 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Award, ArrowUpRight } from "lucide-react";
 import { certifications } from "@/lib/data";
+import SectionHeading from "./ui/SectionHeading";
+import Reveal from "./ui/Reveal";
 
 export default function Certifications() {
-  return (
-    <section id="certifications" className="relative px-6 md:px-10 py-28 md:py-36">
-      <div className="max-w-content mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <p className="section-eyebrow mb-4">Certifications</p>
-          <h2 className="font-display font-semibold text-[clamp(1.8rem,4vw,2.8rem)]">
-            Learning, verified.
-          </h2>
-        </motion.div>
+  if (certifications.length === 0) return null;
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  return (
+    <section
+      id="certifications"
+      className="relative overflow-hidden px-6 pb-24 md:px-10 md:pb-32"
+    >
+      <div className="mx-auto max-w-content">
+        <SectionHeading eyebrow="Certifications" title="Learning, verified." />
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {certifications.map((cert, i) => (
-            <motion.div
+            <Reveal
               key={cert.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              whileHover={{ y: -6 }}
-              className="bg-card border border-border rounded-2xl p-7 flex flex-col hover:border-accent/50 transition-colors duration-300"
+              delay={i * 0.06}
+              className="flex h-full flex-col rounded-3xl border border-border bg-surface p-7 shadow-soft transition-all duration-500 hover:-translate-y-1 hover:border-border-strong hover:shadow-lift"
             >
-              <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                <Award className="text-accent" size={20} />
-              </div>
-              <h3 className="font-display text-lg mb-1">{cert.title}</h3>
-              <p className="text-secondary text-sm mb-1">{cert.issuer}</p>
-              <p className="font-mono text-xs text-secondary/70 mb-6">
-                {cert.year}
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+                <Award size={18} aria-hidden="true" />
+              </span>
+
+              <h3 className="mt-5 font-display text-base font-semibold leading-snug text-ink">
+                {cert.title}
+              </h3>
+              <p className="mt-2 text-sm text-secondary">
+                {cert.issuer} · {cert.year}
               </p>
+
               <a
                 href={cert.credentialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:gap-2.5 transition-all duration-200"
+                className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-medium text-accent transition-all duration-300 hover:gap-2.5"
               >
-                View Credential
-                <ArrowUpRight size={14} />
+                View credential
+                <ArrowUpRight size={14} aria-hidden="true" />
+                <span className="sr-only">for {cert.title}</span>
               </a>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>

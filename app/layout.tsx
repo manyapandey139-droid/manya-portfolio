@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
-import CustomCursor from "@/components/CustomCursor";
-import LoadingScreen from "@/components/LoadingScreen";
+import { profile, siteUrl } from "@/lib/data";
 
-const spaceGrotesk = Space_Grotesk({
+/* Editorial serif for headings, Inter for everything else.
+   Both are variable fonts, so this is two font files total. */
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -17,31 +17,32 @@ const inter = Inter({
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-  display: "swap",
-});
-
-const siteUrl = "https://manyapandey.dev";
-const title = "Manya Pandey — Software Developer & AI Builder";
+const title = `${profile.name} — Website Developer, LinkedIn Ghostwriter & Social Media Manager`;
 const description =
-  "Manya Pandey is a software developer building in public — AI projects, cybersecurity learning, and technical writing, documented as it happens.";
+  "Manya Pandey builds modern, responsive websites and helps brands and professionals grow online through LinkedIn ghostwriting and social media management.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title,
+  title: {
+    default: title,
+    template: `%s · ${profile.name}`,
+  },
   description,
   keywords: [
     "Manya Pandey",
-    "Software Developer",
-    "AI Builder",
-    "Cybersecurity",
-    "Technical Writer",
+    "Website Developer",
+    "LinkedIn Ghostwriter",
+    "Social Media Manager",
+    "Freelance Web Developer",
+    "Personal Brand",
+    "Next.js Developer",
     "Portfolio",
   ],
-  authors: [{ name: "Manya Pandey", url: siteUrl }],
-  creator: "Manya Pandey",
+  authors: [{ name: profile.name, url: siteUrl }],
+  creator: profile.name,
+  alternates: {
+    canonical: "/",
+  },
   robots: {
     index: true,
     follow: true,
@@ -56,25 +57,30 @@ export const metadata: Metadata = {
     url: siteUrl,
     title,
     description,
-    siteName: "Manya Pandey",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Manya Pandey — Software Developer & AI Builder",
-      },
-    ],
+    siteName: profile.name,
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og-image.png"],
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#FBF8FB",
+  colorScheme: "light",
+};
+
+/** Structured data — only facts that exist in lib/data.ts. */
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  url: siteUrl,
+  jobTitle: [...profile.roles],
+  email: `mailto:${profile.email}`,
+  sameAs: [profile.github, profile.linkedin],
 };
 
 export default function RootLayout({
@@ -83,17 +89,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="bg-background text-primary font-body antialiased">
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+      <body className="bg-background font-body text-ink antialiased">
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <LoadingScreen />
-        <CustomCursor />
-        <div className="noise-overlay" aria-hidden="true" />
-        <SmoothScroll>
-          <main id="main-content">{children}</main>
-        </SmoothScroll>
+
+        {/* Smooth scrolling is handled natively in globals.css
+            (scroll-behavior + scroll-padding-top), so no JS scroll library. */}
+        <main id="main-content">{children}</main>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
       </body>
     </html>
   );
