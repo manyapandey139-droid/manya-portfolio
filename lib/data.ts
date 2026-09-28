@@ -37,7 +37,7 @@ export const profile = {
   github: "https://github.com/manyapandey139-droid",
   githubUsername: "manyapandey139-droid",
   linkedin: "https://www.linkedin.com/in/manya-pandey139",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/Manya_Pandey_Resume.pdf",
 };
 
 /** Gmail compose link — keeps the existing behaviour from the old contact section. */

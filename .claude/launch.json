@@ -6,6 +6,23 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 3000
+    },
+    {
+      "name": "maanyara",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "C:/Users/mac/Desktop/maanyara.web"],
+      "port": 3100
+    },
+    {
+      "name": "bajrang",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "C:/Users/mac/Desktop/BAJRAN~1/BAJRAN~1"
+      ],
+      "port": 8080
     }
   ]
 }
